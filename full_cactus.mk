@@ -16,12 +16,14 @@
 
 ## Specify phone tech before including full_phone
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := cactus
 PRODUCT_NAME := full_cactus
 PRODUCT_BRAND := xiaomi
 PRODUCT_MODEL := Redmi 6a
 PRODUCT_MANUFACTURER := Xiaomi
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.secure=1 \
+    ro.adb.secure=0 \
+    ro.allow.mock.location=0
