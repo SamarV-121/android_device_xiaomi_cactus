@@ -27,3 +27,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.secure=1 \
     ro.adb.secure=0 \
     ro.allow.mock.location=0
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=cactus \
+    BUILD_PRODUCT=cactus \
+    TARGET_DEVICE=cactus

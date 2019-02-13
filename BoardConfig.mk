@@ -53,10 +53,7 @@ TW_ALWAYS_RMRF := true
 TW_INCLUDE_CRYPTO := true
 TW_EXCLUDE_SUPERSU := true
 TW_EXCLUDE_TWRPAPP := true
-TW_INTERNAL_STORAGE_PATH := "/data/media/0"
-TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
-TW_EXTERNAL_STORAGE_PATH := "/external_sd"
-TW_EXTERNAL_STORAGE_MOUNT_POINT :="external_sd"
+TW_CRYPTO_USE_SYSTEM_VOLD := hwservicemanager teei_daemon keymaster-3-0
 
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
