@@ -1,13 +1,17 @@
-on init
-    setprop sys.usb.controller musb-hdrc
+on fs
+    write /proc/bootprof "start mobicore (on fs)"
+    chmod 0600 /dev/mobicore
+    chown system system /dev/mobicore
+    chmod 0666 /dev/mobicore-user
+    chown system system /dev/mobicore-user
+    write /proc/bootprof "start mobicore end (on fs)"
 
-on property:ro.mtk_emmc_support=1
-    # Support A/B feature for emmc boot region
-    symlink /dev/block/mmcblk0boot0 /dev/block/platform/bootdevice/by-name/preloader_a
-    symlink /dev/block/mmcblk0boot1 /dev/block/platform/bootdevice/by-name/preloader_b
+on property:ro.crypto.state=encrypted
+    start teei_daemon
 
-on property:ro.mtk_ufs_booting=1
-    # Support A/B feature for ufs boot region
-    symlink /dev/block/sda /dev/block/platform/bootdevice/by-name/preloader_a
-    symlink /dev/block/sdb /dev/block/platform/bootdevice/by-name/preloader_b
-
+# Separate copy needed to use /sbin/linker64 instead of /system/bin/linker64
+service teei_daemon /sbin/teei_daemon
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0

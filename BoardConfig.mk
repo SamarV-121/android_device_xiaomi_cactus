@@ -18,6 +18,7 @@
 TARGET_BOARD_PLATFORM := mt6765
 TARGET_BOOTLOADER_BOARD_NAME := mt6765
 TARGET_NO_BOOTLOADER := true
+PLATFORM_SDK_VERSION := 28
 
 # Architecture
 TARGET_ARCH := arm
@@ -50,11 +51,11 @@ TARGET_SCREEN_HEIGHT := 1440
 TW_DEVICE_VERSION := $(shell date -u +"%Y%m%d")
 TW_NO_SCREEN_BLANK := true
 TW_ALWAYS_RMRF := true
-TW_INCLUDE_CRYPTO := true
 TW_EXCLUDE_SUPERSU := true
 TW_EXCLUDE_TWRPAPP := true
-TW_CRYPTO_USE_SYSTEM_VOLD := hwservicemanager teei_daemon keymaster-3-0
+TW_INCLUDE_CRYPTO := true
+TW_CRYPTO_USE_SYSTEM_VOLD := hwservicemanager keymaster-3-0
+TW_CRYPTO_SYSTEM_VOLD_MOUNT := vendor
 
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
-

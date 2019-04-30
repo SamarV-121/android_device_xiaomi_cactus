@@ -22,3 +22,7 @@ $(call inherit-product, build/target/product/embedded.mk)
 $(call inherit-product, device/xiaomi/cactus/full_cactus.mk)
 
 PRODUCT_NAME := omni_cactus
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.keystore=mt6765
+
