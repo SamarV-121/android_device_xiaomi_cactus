@@ -40,9 +40,6 @@ BOARD_KERNEL_CMDLINE := bootopt=64S3,32S1,32S1 androidboot.selinux=permissive an
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET)
 TARGET_PREBUILT_KERNEL := device/xiaomi/cactus/prebuilt/kernel
 
-# Recovery
-BOARD_SUPPRESS_SECURE_ERASE := true
-
 # Resolution
 TARGET_SCREEN_WIDTH := 720
 TARGET_SCREEN_HEIGHT := 1440
@@ -50,7 +47,6 @@ TARGET_SCREEN_HEIGHT := 1440
 # TWRP
 TW_DEVICE_VERSION := $(shell date -u +"%Y%m%d")
 TW_NO_SCREEN_BLANK := true
-TW_ALWAYS_RMRF := true
 TW_EXCLUDE_SUPERSU := true
 TW_EXCLUDE_TWRPAPP := true
 TW_INCLUDE_CRYPTO := true
