@@ -38,6 +38,7 @@ BOARD_TAGS_OFFSET := 0x14000000
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32S1,32S1 androidboot.selinux=permissive androidboot.configfs=true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET)
 TARGET_PREBUILT_KERNEL := device/xiaomi/cactus/prebuilt/kernel
+TARGET_USERIMAGES_USE_EXT4 := true
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
